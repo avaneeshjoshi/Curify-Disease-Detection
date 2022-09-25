@@ -10,7 +10,7 @@ import string
 
 img = Image.open('logo.png')
 st.set_page_config(page_title='Curify', page_icon=img)
-diabetes_m = pickle.load(open('/Curify-Disease-Detection/diabetes.sav', 'rb'))
+diabetes_m = pickle.load(open('diabetes.sav', 'rb'))
 heartdisease_m = pickle.load(open('/Curify-Disease-Detection/heart_diseaseM.sav','rb'))
 parkinsons_m = pickle.load(open('/Curify-Disease-Detection/parkinsons_m.sav', 'rb'))
 

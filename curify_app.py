@@ -172,7 +172,7 @@ if (selected == 'Heart Disease Prediction'):
         thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
     heart_diagnosis = ''
     if st.button('Heart Disease Prediction Result'):
-        heartPrediction = heart_diseaseM.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
+        heartPrediction = heartdisease_m.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
             
         if (heartPrediction[0] == 1):
             heart_diagnosis = 'Person is having heart disease'

@@ -75,6 +75,21 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 if (selected == 'Diabetes Prediction'):
+    def add_bg_from_local(image_file):
+        with open(image_file, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+        st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+            background-size: cover
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+        )
+    add_bg_from_local('images.jpg')
 
     st.title('Diabetes Prediction')
     col1 = st.columns(1)
@@ -111,6 +126,21 @@ hide_menu_style = """
     """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 if (selected == 'Heart Disease Prediction'):
+    def add_bg_from_local(image_file):
+        with open(image_file, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+        st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+            background-size: cover
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+        )
+    add_bg_from_local('heart.png')
 
     st.title('Heart Disease Prediction')
     col1, col2, col3 = st.columns(3)
@@ -154,6 +184,21 @@ if (selected == 'Heart Disease Prediction'):
 # Parkinson's
 
 if (selected == "Parkinsons Prediction"):
+    def add_bg_from_local(image_file):
+        with open(image_file, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+        st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+            background-size: cover
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+        )
+    add_bg_from_local('parksinson.png') 
     page_bg_img = '''
     <style>
     body {
@@ -165,66 +210,65 @@ if (selected == "Parkinsons Prediction"):
 
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-hide_menu_style = """
-    <style>
-    #MainMenu {visibility: hidden; }
-    footer {visibility: hidden;}
-    </style>
-    """
-st.markdown(hide_menu_style, unsafe_allow_html=True)
-
-st.title("Parkinson's Disease Prediction")
-col1, col2, col3, col4, col5 = st.columns(5)  
-with col1:
-    fo = st.text_input('MDVP:Fo(Hz)')
-with col2:
-    fhi = st.text_input('MDVP:Fhi(Hz)')
-with col3:
-    flo = st.text_input('MDVP:Flo(Hz)')
-with col4:
-    Jitter_percent = st.text_input('MDVP:Jitter(%)')
-with col5:
-    Jitter_Abs = st.text_input('MDVP:Jitter(Abs)')
-with col1:
-    RAP = st.text_input('MDVP:RAP')
-with col2:
-    PPQ = st.text_input('MDVP:PPQ')
-with col3:
-    DDP = st.text_input('Jitter:DDP')
-with col4:
-    Shimmer = st.text_input('MDVP:Shimmer')
-with col5:
-    Shimmer_dB = st.text_input('MDVP:Shimmer(dB)')
-with col1:
-    APQ3 = st.text_input('Shimmer:APQ3')
-with col2:
-    APQ5 = st.text_input('Shimmer:APQ5')
-with col3:
-    APQ = st.text_input('MDVP:APQ')
-with col4:
-    DDA = st.text_input('Shimmer:DDA')
-with col5:
-    NHR = st.text_input('NHR')
-with col1:
-    HNR = st.text_input('HNR')
-with col2:
-    RPDE = st.text_input('RPDE')
-with col3:
-    DFA = st.text_input('DFA')
-with col4:
-    spread1 = st.text_input('spread1')
-with col5:
-    spread2 = st.text_input('spread2')
-with col1:
-    D2 = st.text_input('D2')
-with col2:
-    PPE = st.text_input('PPE')
-        
-parkinsons_diagnosis = ''
-if st.button("Parkinson's Test Result"):
-    parkinsons_prediction = parkinsons_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ,DDP,Shimmer,Shimmer_dB,APQ3,APQ5,APQ,DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]])                          
-    if (parkinsons_prediction[0] == 1):
-        parkinsons_diagnosis = "The person has Parkinson's disease"
-    else:
-        parkinsons_diagnosis = "The person does not have Parkinson's disease" 
-    st.success(parkinsons_diagnosis)
+    hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden; }
+        footer {visibility: hidden;}
+        </style>
+        """
+    st.markdown(hide_menu_style, unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: left; color: #ffffff; font-size: 37px; font-family: Arial;'>Parkinson's Disease Prediction</h1>", unsafe_allow_html=True)
+    col1, col2, col3, col4, col5 = st.columns(5)  
+    with col1:
+        fo = st.text_input('MDVP:Fo(Hz)')
+    with col2:
+        fhi = st.text_input('MDVP:Fhi(Hz)')
+    with col3:
+        flo = st.text_input('MDVP:Flo(Hz)')
+    with col4:
+        Jitter_percent = st.text_input('MDVP:Jitter(%)')
+    with col5:
+        Jitter_Abs = st.text_input('MDVP:Jitter(Abs)')
+    with col1:
+        RAP = st.text_input('MDVP:RAP')
+    with col2:
+        PPQ = st.text_input('MDVP:PPQ')
+    with col3:
+        DDP = st.text_input('Jitter:DDP')
+    with col4:
+        Shimmer = st.text_input('MDVP:Shimmer')
+    with col5:
+        Shimmer_dB = st.text_input('MDVP:Shimmer(dB)')
+    with col1:
+        APQ3 = st.text_input('Shimmer:APQ3')
+    with col2:
+        APQ5 = st.text_input('Shimmer:APQ5')
+    with col3:
+        APQ = st.text_input('MDVP:APQ')
+    with col4:
+        DDA = st.text_input('Shimmer:DDA')
+    with col5:
+        NHR = st.text_input('NHR')
+    with col1:
+        HNR = st.text_input('HNR')
+    with col2:
+        RPDE = st.text_input('RPDE')
+    with col3:
+        DFA = st.text_input('DFA')
+    with col4:
+        spread1 = st.text_input('spread1')
+    with col5:
+        spread2 = st.text_input('spread2')
+    with col1:
+        D2 = st.text_input('D2')
+    with col2:
+        PPE = st.text_input('PPE')
+            
+    parkinsons_diagnosis = ''
+    if st.button("Parkinson's Test Result"):
+        parkinsons_prediction = parkinsons_m.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ,DDP,Shimmer,Shimmer_dB,APQ3,APQ5,APQ,DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]])                          
+        if (parkinsons_prediction[0] == 1):
+            parkinsons_diagnosis = "The person has Parkinson's disease"
+        else:
+            parkinsons_diagnosis = "The person does not have Parkinson's disease" 
+        st.success(parkinsons_diagnosis)

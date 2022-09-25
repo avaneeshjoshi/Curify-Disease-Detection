@@ -7,6 +7,7 @@ import pandas as pd
 from PIL import Image
 import random
 import string
+import sklearn
 
 img = Image.open('logo.png')
 st.set_page_config(page_title='Curify', page_icon=img)
